@@ -6,8 +6,10 @@ This thesis tempalte builds upon the [CUED PhD thesis template](https://github.c
 
 Please read Regulations Governing the Format of Theses and Sample of the Front Cover/Spine/Title Page of a Thesis (Appendixes 12 and 13 of the [Guidebook for Research Degree Studies](https://www.sgs.cityu.edu.hk/student/rpg/studentGuideBook)). See [thesis.pdf](thesis.pdf) for an example PDF created with this template.
 
-
 Credit goes to Krishna Kumar, author of the CUED PhD thesis template above.
+
+This template is included in **[CityU-Thesis](https://github.com/huwan/CityU-Thesis)**: A collection of LaTeX thesis template for students at City University of Hong Kong. You can find more templates in that repository.
+
 
 ## Prerequisites
 
