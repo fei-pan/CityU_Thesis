@@ -8,7 +8,7 @@ Please read Regulations Governing the Format of Theses and Sample of the Front C
 
 Credit goes to Krishna Kumar, author of the CUED PhD thesis template above.
 
-This template is included in **[CityU-Thesis](https://github.com/huwan/CityU-Thesis)**: A collection of LaTeX thesis template for students at City University of Hong Kong. You can find more templates in that repository.
+This template is included in **[CityU-Thesis](https://github.com/huwan/CityU-Thesis)**, a collection of LaTeX thesis template for students at City University of Hong Kong. You can find more templates in that repository.
 
 
 ## Prerequisites
