@@ -24,6 +24,9 @@ The main file is `thesis.tex`, from which a number of other files are included. 
 
 To compile, simply run `thesis.tex` through `XeLaTeX`.
 
+## Online
+
+CityU_Thesis is added to the Overleaf Gallery. You can find it [here](https://www.overleaf.com/latex/templates/cityu-thesis/pcwxpxsqqvyb).
 
 ## License
 
