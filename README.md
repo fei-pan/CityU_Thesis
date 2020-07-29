@@ -10,13 +10,11 @@ Credit goes to Krishna Kumar, author of the CUED PhD thesis template above.
 
 This template is included in **[CityU-Thesis](https://github.com/huwan/CityU-Thesis)**, a collection of LaTeX thesis template for students at City University of Hong Kong. You can find more templates in that repository.
 
-
 ## Prerequisites
 
 - **Fonts**: Times New Roman and MingLiU/細明體 (PMingLiU/新細明體) should be used in the title page of a thesis to provide thesis information in both Chinese and English. Make sure they have already been installed system-wide.
 
 - **XeLaTeX**: Configure your document to be compiled with `XeLaTeX` typesetting engine to use the external fonts above.
-
 
 ## Usage
 
@@ -27,6 +25,11 @@ To compile, simply run `thesis.tex` through `XeLaTeX`.
 ## Online
 
 CityU_Thesis is added to the Overleaf Gallery. You can find it [here](https://www.overleaf.com/latex/templates/cityu-thesis/pcwxpxsqqvyb).
+
+
+## Disclaimer
+
+Although this template is built to satisfy the requirements of CityU, it is not an official template. Use this tempalte at your own risk.
 
 ## License
 
