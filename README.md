@@ -29,7 +29,7 @@ CityU_Thesis is added to the Overleaf Gallery. You can find it [here](https://ww
 
 ## Disclaimer
 
-Although this template is built to satisfy the requirements of CityU, it is not an official template. Use this tempalte at your own risk.
+Although this template is built to satisfy the requirements of CityU, it is not an official template. Use this template at your own risk.
 
 ## License
 
