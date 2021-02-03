@@ -1,5 +1,5 @@
 % !TeX program = xelatex
-\documentclass[a4paper,12pt,twoside,times,numbered,PageStyleIII]{PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,twoside,times,PageStyleIII,custommargin,custombib]{PhDThesisPSnPDF}
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -79,7 +79,7 @@
 
 % Add spaces between paragraphs
 %\setlength{\parskip}{0.5em}
-% Ragged bottom avoids extra whitespaces between paragraphs
+% Ragged bottom avoids extra whitespace between paragraphs
 \raggedbottom
 % To remove the excess top spacing for enumeration, list and description
 %\usepackage{enumitem}
@@ -96,74 +96,70 @@
   \setromanfont{Times New Roman}
   \setsansfont{Arial}
   \setmonofont{Courier New}
-
 \fi
 
 % **************************** Custom Packages ********************************
+\usepackage{pdfpages}
 
-% ************************* Algorithms and Pseudocode **************************
+% ************************* Microtype and SI Units ****************************
 
-%\usepackage{algpseudocode}
+\usepackage[super]{nth}
+\usepackage{microtype}
+\usepackage{siunitx}
+    \sisetup{detect-all,math-micro=\text{µ},text-micro=µ,per-mode = symbol,range-phrase = --}
+
+% ************************* Algorithms and Pseudocode *************************
+
+\usepackage{algorithm}\floatstyle{plaintop}
+\usepackage{algpseudocode}
 
 
 % ********************Captions and Hyperreferencing / URL **********************
-
-% Captions: This makes captions of figures use a boldfaced small font.
-%\RequirePackage[small,bf]{caption}
-
-\RequirePackage[labelsep=space,tableposition=top]{caption}
-\renewcommand{\figurename}{Fig.} %to support older versions of captions.sty
-
+\usepackage[labelsep=space,tableposition=top,font=small]{caption}
 
 % *************************** Graphics and figures *****************************
-%\usepackage{rotating}
-%\usepackage{wrapfig}
-
 % Uncomment the following two lines to force Latex to place the figure.
 % Use [H] when including graphics. Note 'H' instead of 'h'
-%\usepackage{float}
-%\restylefloat{figure}
+\usepackage{hologo}
+\usepackage{float}
+\usepackage[framemethod=tikz]{mdframed} % insert text with a framed box
 
 % Subcaption package is also available in the sty folder you can use that by
 % uncommenting the following line
 % This is for people stuck with older versions of texlive
-%\usepackage{sty/caption/subcaption}
-\usepackage{subcaption}
+\usepackage[caption=false]{subfig} % currently provides better vertical spacing than subcaption, dated on 3 February 2021
 
 % ********************************** Tables ************************************
 \usepackage{booktabs} % For professional looking tables
 \usepackage{multirow}
-
-%\usepackage{multicol}
-%\usepackage{longtable}
-%\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{xltabular}
+\usepackage{lscape}
+\usepackage[twoside]{rotating}
 
 % ************************ Formatting / Footnote *******************************
 
 % Don't break enumeration (etc.) across pages in an ugly manner (default 10000)
-%\clubpenalty=500
-%\widowpenalty=500
+\clubpenalty=500
+\widowpenalty=500
 
 %\usepackage[perpage]{footmisc} %Range of footnote options
 
 
 % *************************** Bibliography  and References ********************
-
-\usepackage{cleveref} %Referencing without need to explicitly state fig /table
+\usepackage[capitalise,nameinlink]{cleveref} %Referencing without need to explicitly state fig /table
 
 % Add `custombib' in the document class option to use this section
 \ifuseCustomBib
-   \RequirePackage[square, sort, numbers, authoryear]{natbib} % CustomBib
-
 % If you would like to use biblatex for your reference management, as opposed to the default `natbibpackage` pass the option `custombib` in the document class. Comment out the previous line to make sure you don't load the natbib package. Uncomment the following lines and specify the location of references.bib file
 
-%\RequirePackage[backend=biber, style=numeric-comp, citestyle=numeric, sorting=nty, natbib=true]{biblatex}
-%\addbibresource{References/references} %Location of references.bib only for biblatex, Do not omit the .bib extension from the filename.
-
+\RequirePackage[backend=biber, date=year, style=numeric, citestyle=numeric-comp, sorting=none, natbib=true, backref=true, maxbibnames=99, autolang=hyphen]{biblatex}
+\addbibresource{References/CityU.bib} %Location of references.bib only for biblatex, Do not omit the .bib extension from the filename.
+\renewcommand*{\mkbibacro}[1]{\MakeUppercase{#1}} % to make DOI uppercase
 \fi
-
-% changes the default name `Bibliography` -> `References'
-\renewcommand{\bibname}{References}
 
 % ***************************** Better enumeration ****************************
 \usepackage{enumitem}
@@ -172,24 +168,20 @@
 % ************************* User Defined Commands ******************************
 % ******************************************************************************
 
-% *********** To change the name of Table of Contents / LOF and LOT ************
-
-%\renewcommand{\contentsname}{My Table of Contents}
-%\renewcommand{\listfigurename}{My List of Figures}
-%\renewcommand{\listtablename}{My List of Tables}
-
 % ********************** TOC depth and numbering depth *************************
 
-\setcounter{secnumdepth}{2}
-\setcounter{tocdepth}{2}
-
+% \setcounter{secnumdepth}{2}
+% \setcounter{tocdepth}{2}
 
 % ******************************* Nomenclature *********************************
 
+\usepackage[intoc]{nomencl}
+    \makenomenclature
 % To change the name of the Nomenclature section, uncomment the following line
+    %\renewcommand{\nomname}{Symbols}
 
-%\renewcommand{\nomname}{Symbols}
-
+% \usepackage{imakeidx}
+%     \makeindex[intoc]
 
 % ********************************* Appendix ***********************************
 
@@ -207,13 +199,14 @@
 % \makeatother
 
 % ********************************* Lipsum ***********************************
-\usepackage{lipsum}
-\usepackage[math]{blindtext}
+% \usepackage{lipsum}
+% \usepackage[math]{blindtext}
 
 % *************************** Graphics and figures *****************************
 % Specify one or several paths in which to search for figures.
 % Don't miss the last "/".
-\graphicspath{{Figures/}{Figures/Chapter1/}{Figures/Chapter2/}}
+\graphicspath{{Figures/}{Figures/Chapter1/}{Figures/Chapter2/}{Figures/Chapter3/}{Figures/Chapter4/}{Figures/Chapter5/}{Figures/Chapter6/}}
+% \usepackage{pgf,tikz}
 
 % ******************************************************************************
 % ************************ Thesis Information & Meta-data **********************
@@ -224,13 +217,14 @@
 %\texorpdfstring{$\sigma$}{sigma}
 
 %% The title of the thesis
-\title{A Discussion on Higher Education Development in Hong Kong}
-\titlezh{論香港高等教育的發展}
-% \shorttitle{A Discussion on Higher Education Development in HK}
+\title{A Title Sample}
+\titlezh{一個標題\\
+            示例}
+\shorttitle{High-Throughput Microinjection System}
 
 %% The full name of the author
-\author{Chan Tai Man}
-\authorzh{陳大文}
+\author{Pan Fei}
+\authorzh{潘飛}
 
 %% University
 \university{City University of Hong Kong}
@@ -240,8 +234,8 @@
 % \partneruniversity{University of Science and Technology of China}
 
 %% Department
-\dept{Department of Public Policy}
-\deptzh{公共政策學系}
+\dept{Department of Biomedical Engineering}
+\deptzh{生物醫學工程學系}
 
 %% Full title of the Degree
 \degreetitle{Doctor of Philosophy} % Master/Doctor of Philosophy as appropriate
@@ -250,11 +244,11 @@
 
 %% Submission date
 % Default is set as {\monthname[\the\month]\space\the\year}
-\degreedate{July 2018}
-\degreedatezh{二零一八年七月}
+\degreedate{January 2021}
+\degreedatezh{二零二一年一月}
 
 %% Meta information will appear in the PDF meta-information
-\subject{LaTeX} \keywords{{LaTeX} {PhD Thesis} {Engineering}}
+\subject{Cell Microinjection} \keywords{{Microinjection} {High-throughput}}
 
 % ******************************** Front Matter ********************************
 \begin{document}
@@ -264,25 +258,29 @@
 \maketitle
 \include{Front/dedication}
 \include{Front/abstract}
+\include{Front/panel}
+% \includepdf{Front/panel_sheet.pdf} % the SGS will provide you a new panel sheet
 \include{Front/acknowledgement}
 
 % *********************** Adding TOC and List of Figures ***********************
 
 \tableofcontents
-
 \listoffigures
-
 \listoftables
+\clearpage
+\addcontentsline{toc}{chapter}{List of Algorithms}
+\listofalgorithms
 
-% \printnomenclature[space] space can be set as 2em between symbol and description
-%\printnomenclature[3em]
-
-% \printnomenclature
+\include{Front/nomenclature}
+\printnomenclature[3cm]
 
 % ******************************** Main Matter *********************************
 \mainmatter
 \include{Chapters/chapter1}
-
+\include{Chapters/chapter2}
+\include{Chapters/chapter3}
+\include{Chapters/chapter6}
+\include{Chapters/chapter7}
 
 % ********************************** Back Matter *******************************
 % Backmatter should be commented out, if you are using appendices after References
@@ -290,35 +288,15 @@
 
 % ********************************** Bibliography ******************************
 \begin{spacing}{0.9}
-
-% To use the conventional natbib style referencing
-% Bibliography style previews: http://nodonn.tipido.net/bibstyle.php
-% Reference styles: http://sites.stat.psu.edu/~surajit/present/bib.htm
-\nocite{*}
-\bibliographystyle{apalike}
-% \bibliographystyle{ieeetran} % not IEEEtran
-% \bibliographystyle{unsrt} % Use for unsorted references
-% \bibliographystyle{plainnat} % use this to have URLs listed in References
-\cleardoublepage
-\bibliography{References/references} % Path to your References.bib file
-
-
-% If you would like to use BibLaTeX for your references, pass `custombib' as
-% an option in the document class. The location of 'reference.bib' should be
-% specified in the preamble.tex file in the custombib section.
-% Comment out the lines related to natbib above and uncomment the following line.
-
-%\printbibliography[heading=bibintoc, title={References}]
-
-
+\printbibliography[heading=bibintoc, title={References}]
 \end{spacing}
 
+% \printindex
 % ********************************** Appendices ********************************
 
-\begin{appendices} % Using appendices environment for more functunality
-
+\begin{appendices} % Using appendices environment for more functionality
 \include{Chapters/appendix1}
-
+\include{Chapters/appendix2}
 \end{appendices}
 
-\end{document}
+\end{document} 

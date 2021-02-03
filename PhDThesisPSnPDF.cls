@@ -179,19 +179,26 @@ supported!}
 % Process options and load class
 \ProcessOptions\relax%
 \LoadClass{book}%
+\usepackage[french,ngerman,main=english]{babel}
+    \addto\captionsenglish{%
+        \renewcommand{\figurename}{Fig.}%
+        \renewcommand{\contentsname}{Table of Contents}%
+        }
+\usepackage{csquotes}
 
 % ******************************************************************************
 % ******************************** Packages ************************************
 % ******************************************************************************
+% ************************ URL Package and Definition **************************
+\RequirePackage{xurl}
 % ************************** Layout and Formatting *****************************
-
 \RequirePackage{lscape}   % Supports Landscape Layout
 \RequirePackage{setspace} % Define line spacing in paragraph
 \RequirePackage{calc}     % calculate vertical spacing
 
 % ************************* Conditional Statements *****************************
 \RequirePackage{ifthen}   % Conditional statements
-\RequirePackage{ifpdf}    % Check for pdfLaTeX
+% \RequirePackage{ifpdf}    % Check for pdfLaTeX
 \RequirePackage{ifxetex}  % XeLaTeX
 
 % *********************** Table of Contents & Appendices ***********************
@@ -200,15 +207,11 @@ supported!}
 % Add appendices
 \RequirePackage[title,titletoc]{appendix}
 
-\renewcommand{\contentsname}{Table of contents}
-\renewcommand{\listfigurename}{List of figures}
-\renewcommand{\listtablename}{List of tables}
-
 % Hides Contents appearing from TOC, but adds it to bookmarks
 \let\temptableofcontents\tableofcontents
 \renewcommand{\tableofcontents}{
   \cleardoublepage
-  \pdfbookmark[0]{\contentsname}{Contents}
+  \pdfbookmark[0]{\contentsname}{Table of Contents}
   \temptableofcontents
 }
 
@@ -269,19 +272,17 @@ supported!}
 \fi
 
 % ********************************** Fonts **********************************
-\RequirePackage{amsmath}
-\RequirePackage{fontspec}
-\RequirePackage[]{unicode-math}
+\RequirePackage{amssymb,amsfonts,amsmath,amsthm,mathtools,esvect}
+\newtheorem{theorem}{Theorem}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\RequirePackage{bm,fontspec}
+% \RequirePackage[]{unicode-math}
 % Chinese support
-% \RequirePackage{xeCJK}
-% \setCJKmainfont{PMingLiU} %MingLiU
-\newfontfamily\mingliu{PMingLiU}
-\newcommand\chinese[1]{{\mingliu #1}}
-
-\newfontfamily\timesnewroman{Times New Roman} % Front cover/Title page
-\newcommand\english[1]{{\timesnewroman #1}}
-
+\RequirePackage[scheme=plain,fontset=none]{ctex}
+\setCJKmainfont{PMingLiU.ttf} %新細明體
+% \setCJKmainfont{I.MingCP-7.00.ttf} %開源新細明體
 \setmainfont{Times New Roman}
+\newcommand*{\myfont}{\fontfamily{lmr}\selectfont}
 
 \RequirePackage{textcomp}
 % Font Selection
@@ -327,24 +328,16 @@ supported!}
 
 \RequirePackage[unicode=true]{hyperref}
 \hypersetup{
-  final=true,
-  plainpages=false,
-  pdfstartview=FitV,
-  pdftoolbar=true,
-  pdfmenubar=true,
   bookmarksopen=true,
   bookmarksnumbered=true,
   breaklinks=true,
-  linktocpage,
-  colorlinks=true,
-  linkcolor=black,
-  urlcolor=black,
-  citecolor=black,
-  anchorcolor=black
+  linktocpage=true,
+  colorlinks=true
+%   hidelinks,
 }
 
-  % For Print version
-  \ifsetCustomMargin
+% For Print version
+\ifsetCustomMargin
   % Margin to be define in preamble using geometry package
   \else
   \if@print
@@ -357,14 +350,6 @@ supported!}
         tmargin=38mm,bmargin=38mm,lmargin=32.7mm,rmargin=32.7mm]{geometry}
     \fi
 \fi
-
-% ************************ URL Package and Definition **************************
-\RequirePackage{url}
-% Redefining urlstyle to use smaller fontsize in References with URLs
-\newcommand{\url@leostyle}{%
- \@ifundefined{selectfont}{\renewcommand{\UrlFont}{\sffamily}}
- {\renewcommand{\UrlFont}{\normalsize}}}
-\urlstyle{leo}
 
 % ******************************************************************************
 % **************************** Pre-defined Settings ****************************
@@ -388,7 +373,7 @@ supported!}
 % type” means exactly (in terms of millimetres baseline distance). The following
 % LaTeX setting has routinely been considered perfectly acceptable:
 
-\renewcommand\baselinestretch{1.2}
+\renewcommand\baselinestretch{1.5}
 
 % ******************************** Justification *******************************
 % Left aligned as per University identity guidelines
@@ -624,14 +609,14 @@ wish to left align your text}
 
 % University
 {\Largefontsize
-  {\expandafter\MakeUppercase\expandafter{\english\@university} \par}
-  {\chinese \@universityzh \par}
+  {\expandafter\MakeUppercase\expandafter{\@university} \par}
+  {\@universityzh \par}
 
   \vspace{54bp}
 
   % Title
-  {\english \@title \par}
-  {\chinese \@titlezh \par}
+  {\@title \par}
+  {\@titlezh \par}
 }
 
 \vspace{36bp}
@@ -639,31 +624,31 @@ wish to left align your text}
 
 % % Submission Text
 {\smallfontsize
-  {\english \submissiontexta \par}
-  {\english \@dept \par}
-  {\chinese \@deptzh \par}
-  {\english \submissiontextb \english \@degreetitle \par}
-  {\chinese \@degreetitlezh \par}
+  {\submissiontexta \par}
+  {\@dept \par}
+  {\@deptzh \par}
+  {\submissiontextb \@degreetitle \par}
+  {\@degreetitlezh \par}
     \ifthenelse{\equal{\@partneruniversity}{}}{
       % partneruniversity is not defined
     }{
-      {\english \submissiontextc \english \@partneruniversity\par}
+      {\submissiontextc \@partneruniversity\par}
     } % partneruniversity is defined
 \vfill
 
 % \vspace{36bp}
-  {\english {by}}
+  {{by}}
 \vspace{36bp}
 
   % Author
-  {\english \@author \par}
-  {\chinese \@authorzh \par}
+  {\@author \par}
+  {\@authorzh \par}
 
 \vspace{36bp}
 
   %Degree date
-  {\english \@degreedate \par}
-  {\chinese \@degreedatezh \par}
+  {\@degreedate \par}
+  {\@degreedatezh \par}
 }
 
 \end{center}
