@@ -1,5 +1,14 @@
 # CityU_Thesis
 
+## UPDATE (Feb 3, 2021)
+
+I modified some document settings to make the whole template more suitable for some students of CityU. Users may use PMingLiU/新細明體 or I.Ming/一點明體 as an alternative.
+
+Use biber + biblatex please.
+
+
+## Previous declaration
+
 An XeLaTeX thesis template for research postgraduate (MPhil and PhD) and professional doctorate (PD) students at City University of Hong Kong.
 
 This thesis tempalte builds upon the [CUED PhD thesis template](https://github.com/kks32/phd-thesis-template) from Krishna Kumar. It is adapted to meet the regulations governing the format of theses (as of 2018-19).
