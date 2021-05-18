@@ -1,10 +1,10 @@
 # CityU_Thesis
 
-## UPDATE (Feb 3, 2021)
+## UPDATE (May 18, 2021)
 
-I modified some document settings to make the whole template more suitable for some students of CityU. Users may use PMingLiU/新細明體 or I.Ming/一點明體 as an alternative.
+I modified some document settings to make the whole template more suitable for some students of CityU. Users may refer to the [link](https://www.overleaf.com/read/mwpbypjxngvh) for latest updates.
 
-Use biber + biblatex please.
+Use biber + biblatex + xindy please.
 
 
 ## Previous declaration
