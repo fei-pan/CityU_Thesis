@@ -1,5 +1,5 @@
 % !TeX program = xelatex
-\documentclass[a4paper,12pt,twoside,PageStyleIII,customfont,custommargin,custombib]{PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,twoside,PageStyleIII,times,custommargin,custombib]{PhDThesisPSnPDF}
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -155,6 +155,11 @@
 % ************************* Algorithms and Pseudocode *************************
 \usepackage{algorithm}\floatstyle{plaintop}
 \usepackage{algpseudocode}
+\makeatletter
+\@addtoreset{algorithm}{chapter}% algorithm counter resets every chapter
+\makeatother
+\renewcommand{\thealgorithm}{\thechapter.\arabic{algorithm}}% Algorithm # is <chapter>.<algorithm>
+
 \usepackage[chapter,newfloat]{minted}
 \newenvironment{code}{\captionsetup{type=listing}}{}
 \SetupFloatingEnvironment{listing}{name=Listing} % or name=Source Code
@@ -286,9 +291,11 @@
 \tableofcontents
 \listoffigures
 \listoftables
-\clearpage
+\cleardoublepage % or \clearpage under the oneside option
+\phantomsection
 \addcontentsline{toc}{chapter}{List of Algorithms}
 \listofalgorithms
+\listoflistings
 
 \include{Front/nomenclature}
 \printnomenclature[3cm]
