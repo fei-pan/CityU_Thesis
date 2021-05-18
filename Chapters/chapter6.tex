@@ -1,14 +1,108 @@
 \chapter{Experiments}
 \label{ch6:Experiments}
 
+\begin{mdframed}
+\zhlipsum[1][name=xiangyu]
+\begin{center}
+    \includegraphics[width=\linewidth]{example-image}
+    \captionof{figure}{這是一個測試}
+\end{center}
+\zhlipsum[2][name=xiangyu]
+\end{mdframed}
+
+\begin{mdframed}
+\zhlipsum[3][name=xiangyu]
+\end{mdframed}
+
+\begin{multicols}{2}
+\zhlipsum[4][name=xiangyu]
+\end{multicols}
+
+\begin{multicols}{3}
+\zhlipsum[5][name=xiangyu]
+\end{multicols}
+
 \section{Introduction}
 \label{ch6:sec:Introduction}
+
+\begin{algorithm}[!t]
+\caption{The Bellman-Kalaba algorithm}
+\begin{algorithmic}[1]
+\Procedure {BellmanKalaba}{$G$, $u$, $l$, $p$}
+\ForAll {$v \in V(G)$}
+\State $l(v) \leftarrow \infty$
+\EndFor
+\State $l(u) \leftarrow 0$
+\Repeat
+\For {$i \leftarrow 1, n$}
+\State $min \leftarrow l(v_i)$
+\For {$j \leftarrow 1, n$}
+\If {$min > e(v_i, v_j) + l(v_j)$}
+\State $min \leftarrow e(v_i, v_j) + l(v_j)$
+\State $p(i) \leftarrow v_j$
+\EndIf
+\EndFor
+\State $l’(i) \leftarrow min$
+\EndFor
+\State $changed \leftarrow l \not= l’$
+\State $l \leftarrow l’$
+\Until{$\neg changed$}
+\EndProcedure
+\Statex
+\Procedure {FindPathBK}{$v$, $u$, $p$}
+\If {$v = u$}
+\State \textbf{Write} $v$
+\Else
+\State $w \leftarrow v$
+\While {$w \not= u$}
+\State \textbf{Write} $w$
+\State $w \leftarrow p(w)$
+\EndWhile
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{code}
+\captionof{listing}{My C-Code}
+\label{code:c-code}
+\begin{minted}[linenos=true,mathescape,breaklines,breakafter=d,frame=single]{c}
+int main() {
+printf("hello, world");
+return 0;
+}
+\end{minted}
+\end{code}
+
+Reference to \cref{code:c-code}.  
 
 \section{Experimental Results}
 \label{ch6:sec:Experimental Results}
 
+\noindent
+\begin{minipage}{0.5\textwidth}
+滄海月明珠有淚，藍田日暖玉生煙。
+\end{minipage}% This must go next to `\end{minipage}`
+\begin{minipage}{0.5\textwidth}
+此情可待成追憶，只是當時已惘然。
+\end{minipage}
+
 \subsection{Some Results}
 \label{ch6:subsec:Some Results}
+
+微信圖標 \faIcon{weixin}
+
+CV \aiCV
+
+research gate \aiResearchGate
+
+overleaf \aiOverleaf
+
+orcid \aiOrcid
+
+orcid \href{http://orcid.org/0000-0003-0550-4024}{\textcolor{orcidlogocol}{\aiOrcid}}
+
+open access \aiOpenAccess
 
 \subsection{Discussion}
 \label{ch6:subsec:Discussion}

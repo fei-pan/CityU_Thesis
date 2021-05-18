@@ -1,8 +1,72 @@
 \chapter{Introduction}
 \label{ch1:Introduction}
 
+English. \foreignlanguage{russian}{Русский}\footnote{Need to use \verb|FreeSerif| or \verb|Times New Roman| font. \verb|newtxtext| and \verb|newpxtext| don't contain Cyrillic.}. \foreignlanguage{spanish}{Español}.
+
+\Gls{pbs}, \gls{ncbi}, \gls{rna}, \gls{dna}, \gls{mrna}, \gls{cdna}, \gls{crispr}, and \gls{tgv}.
+
+\Gls{pbs}, \gls{ncbi}, \gls{rna}, \gls{dna}, \gls{mrna}, \gls{cdna}, \gls{crispr}, and \gls{tgv}.
+
 \section{Background}
 \label{ch1:sec:Background}
+
+Inline math $\Vec{y}=f(\vv{x})$
+
+\begin{equation}
+    \vv{E}_{\vv{u}_{\vv{u}}}
+\end{equation}
+
+\begin{equation}\label{eq:joint_probability_distribution_function}
+  F\left( x,y \right) =\int_{-\infty}^x{\int_{-\infty}^y{f\left( u,v \right) \text{d}u\text{d}v}}
+\end{equation}
+
+\begin{align}\label{eq:myalign}
+  F_X\left( x \right) =P\left( X\leqslant x \right) & =P\left( X\leqslant x,Y<+\infty \right) \\
+                                                    & =\int_{-\infty}^x{\int_{-\infty}^{+\infty}{f\left( u,v \right) \text{d}u\text{d}v}} \\
+                                                    & =\int_{-\infty}^x{\left[ \int_{-\infty}^{+\infty}{f\left( u,v \right) \text{d}v} \right] \text{d}u}\\
+                                                    & =\int_{-\infty}^x{f_X\left( x \right) \text{d}u}
+\end{align}
+
+\begin{equation}\label{eq:myeq}
+  \begin{split}
+  F_X\left( x \right) =P\left( X\leqslant x \right) & =P\left( X\leqslant x,Y<+\infty \right) \\
+                                                    & =\int_{-\infty}^x{\int_{-\infty}^{+\infty}{f\left( u,v \right) \text{d}u\text{d}v}} \\
+                                                    & =\int_{-\infty}^x{\left[ \int_{-\infty}^{+\infty}{f\left( u,v \right) \text{d}v} \right] \text{d}u}\\
+                                                    & =\int_{-\infty}^x{f_X\left( x \right) \text{d}u}
+  \end{split}
+\end{equation}
+
+\begin{subequations}\label{euler_rotation_matrix}
+\begin{align}
+	R_{11}=&\cos \alpha \cos \gamma -\cos \beta \sin \alpha \sin \gamma\\
+	R_{12}=&\sin \alpha \cos \gamma +\cos \beta \cos \alpha \sin \gamma\\
+	R_{13}=&\sin \beta \sin \gamma\\
+	R_{21}=&-\cos \alpha \sin \gamma -\cos \beta \sin \alpha \cos \gamma\\
+	R_{22}=&-\sin \alpha \sin \gamma +\cos \beta \cos \alpha \cos \gamma\\
+	R_{23}=&\sin \beta \cos \gamma\\
+	R_{31}=&\sin \beta \sin \alpha\\
+	R_{32}=&-\sin \beta \cos \alpha\\
+	R_{33}=&\cos \beta
+\end{align}
+\end{subequations}
+
+\begin{subequations}
+\begin{multline}\label{formula_a_prime_prime}
+a''=\frac{\cos \alpha \cos \gamma -\cos \beta \sin \alpha \sin \gamma}{\cos \theta}a\\
++\frac{\sin \alpha \cos \gamma +\cos \beta \cos \alpha \sin \gamma}{\cos \theta}b\\
++\frac{\sin \beta \sin \gamma}{\cos \theta}c
+\end{multline}
+\begin{multline}\label{formula_b_prime_prime}
+b''=a\left( -\cos \alpha \sin \gamma -\cos \beta \sin \alpha \cos \gamma \right)\\
++b\left( -\sin \alpha \sin \gamma +\cos \beta \cos \alpha \cos \gamma \right)\\
++c\left( \sin \beta \cos \gamma \right)
+\end{multline}
+\begin{multline}\label{formula_c_prime_prime}
+c''=\left( \cos \beta -\sin \theta \sin \beta \sin \gamma \right) c\\
+-\left(-\sin \beta \cos \alpha -\sin \theta \left( \sin \alpha \cos \gamma +\cos \beta \cos \alpha \sin \gamma \right) \right) b\\
++\left( \sin \beta \sin \alpha -\sin \theta \left( \cos \alpha \cos \gamma -\cos \beta \sin \alpha \sin \gamma \right) \right) a
+\end{multline}
+\end{subequations}
 
 \section{Statement of Problems}
 \label{ch1:sec:StatementofProblems}
@@ -10,7 +74,7 @@
 \section{Research Objectives}
 \label{ch1:sec:ResearchObjectives}
 
-In brief, the research objectives of this study are enumerated as follows:
+In brief, the research objectives of this study are enumerated as follows:\index{research}
 \begin{enumerate}
     \item AAA;
     
@@ -31,6 +95,14 @@ The major methodologies and their significance are discussed below.
     \item CCC.
 \end{enumerate}
 
+自定義編號和siunitx宏包
+
+\begin{enumerate}[label=\fbox{\arabic*}]
+    \item 你
+    \item 我
+    \item 他
+    \item \SI{1.0}{\milli\meter\per\kilo\gram}
+\end{enumerate}
 
 \section{Summary}
 \label{ch1:sec:Summary}

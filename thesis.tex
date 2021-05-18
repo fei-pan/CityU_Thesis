@@ -1,5 +1,5 @@
 % !TeX program = xelatex
-\documentclass[a4paper,12pt,twoside,times,PageStyleIII,custommargin,custombib]{PhDThesisPSnPDF}
+\documentclass[a4paper,12pt,twoside,PageStyleIII,customfont,custommargin,custombib]{PhDThesisPSnPDF}
 
 % ******************************************************************************
 % ******************************* Class Options ********************************
@@ -88,81 +88,88 @@
 % ******************* Fonts (like different typewriter fonts etc.)*************
 
 % Add `customfont' in the document class option to use this section
-
 \ifsetCustomFont
   % Set your custom font here and use `customfont' in options. Leave empty to
   % load computer modern font (default LaTeX font).
-  % \setmainfont{Georgia}
-  \setromanfont{Times New Roman}
-  \setsansfont{Arial}
-  \setmonofont{Courier New}
+  
+%   \setmainfont{Times New Roman}
+%   \setsansfont{Arial}
+%   \setmonofont{Courier New}
+
+	\setmainfont{FreeSerif} % Contains Cyrillic (Russian letters)
+	\setsansfont{FreeSans}
+	\setmonofont{FreeMono}
+	
+%   \usepackage{newtxtext}
+%   \usepackage{newpxtext}
+    \usepackage{textcomp} % Contains a few common symbols
 \fi
 
+% ***************************** Better enumeration ****************************
+\usepackage{enumitem}
+
 % **************************** Custom Packages ********************************
-\usepackage{pdfpages}
+\usepackage{pdfpages}       % Include PDF documents in LATEX
+\usepackage{multicol}       % Intermix single and multiple columns
+\usepackage{hologo}         % Insert LaTeX-related logos
+\usepackage{fontawesome5}   % Insert some interesting vector icons 
+\usepackage{academicons}    % Insert some vector icons applicable to academia 
+    \definecolor{orcidlogocol}{HTML}{A6CE39}
 
 % ************************* Microtype and SI Units ****************************
-
-\usepackage[super]{nth}
-\usepackage{microtype}
+\usepackage[super]{nth}     % Generate English ordinal numbers
+\usepackage{microtype}      % Subliminal refinements towards typographical perfection
 \usepackage{siunitx}
-    \sisetup{detect-all,math-micro=\text{µ},text-micro=µ,per-mode = symbol,range-phrase = --}
-
-% ************************* Algorithms and Pseudocode *************************
-
-\usepackage{algorithm}\floatstyle{plaintop}
-\usepackage{algpseudocode}
-
+    \sisetup{detect-all, math-micro = \text{µ}, text-micro = µ, per-mode = symbol, range-phrase = --}
 
 % ********************Captions and Hyperreferencing / URL **********************
 \usepackage[labelsep=space,tableposition=top,font=small]{caption}
+\usepackage[caption=false]{subfig} % currently provides better vertical spacing than subcaption, dated on 3 February 2021
+\usepackage[capitalise,nameinlink]{cleveref} % Referencing without need to explicitly state fig /table
 
 % *************************** Graphics and figures *****************************
 % Uncomment the following two lines to force Latex to place the figure.
 % Use [H] when including graphics. Note 'H' instead of 'h'
-\usepackage{hologo}
 \usepackage{float}
 \usepackage[framemethod=tikz]{mdframed} % insert text with a framed box
-
-% Subcaption package is also available in the sty folder you can use that by
-% uncommenting the following line
-% This is for people stuck with older versions of texlive
-\usepackage[caption=false]{subfig} % currently provides better vertical spacing than subcaption, dated on 3 February 2021
 
 % ********************************** Tables ************************************
 \usepackage{booktabs} % For professional looking tables
 \usepackage{multirow}
-\usepackage{threeparttable}
-\usepackage{multicol}
 \usepackage{longtable}
 \usepackage{tabularx}
+\usepackage{diagbox}    % 表格单元格里画对角线
 \usepackage{xltabular}
-\usepackage{lscape}
+\usepackage{threeparttable}
+\usepackage[referable]{threeparttablex} % 跨页表格longtable的threeparttable
 \usepackage[twoside]{rotating}
 
 % ************************ Formatting / Footnote *******************************
-
 % Don't break enumeration (etc.) across pages in an ugly manner (default 10000)
 \clubpenalty=500
 \widowpenalty=500
 
-%\usepackage[perpage]{footmisc} %Range of footnote options
+\usepackage[perpage]{footmisc} % Range of footnote options
+\usepackage{fancyvrb}
 
+% ************************* Algorithms and Pseudocode *************************
+\usepackage{algorithm}\floatstyle{plaintop}
+\usepackage{algpseudocode}
+\usepackage[chapter,newfloat]{minted}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Listing} % or name=Source Code
+\usepackage{csquotes}
 
-% *************************** Bibliography  and References ********************
-\usepackage[capitalise,nameinlink]{cleveref} %Referencing without need to explicitly state fig /table
-
+% *************************** Bibliography and References ********************
 % Add `custombib' in the document class option to use this section
 \ifuseCustomBib
 % If you would like to use biblatex for your reference management, as opposed to the default `natbibpackage` pass the option `custombib` in the document class. Comment out the previous line to make sure you don't load the natbib package. Uncomment the following lines and specify the location of references.bib file
 
 \RequirePackage[backend=biber, date=year, style=numeric, citestyle=numeric-comp, sorting=none, natbib=true, backref=true, maxbibnames=99, autolang=hyphen]{biblatex}
-\addbibresource{References/CityU.bib} %Location of references.bib only for biblatex, Do not omit the .bib extension from the filename.
+\addbibresource{References/ref_1.bib} %Location of references.bib only for biblatex, Do not omit the .bib extension from the filename.
+\addbibresource{References/ref_2.bib} %Location of references.bib only for biblatex, Do not omit the .bib extension from the filename.
 \renewcommand*{\mkbibacro}[1]{\MakeUppercase{#1}} % to make DOI uppercase
 \fi
-
-% ***************************** Better enumeration ****************************
-\usepackage{enumitem}
 
 % ******************************************************************************
 % ************************* User Defined Commands ******************************
@@ -177,12 +184,22 @@
 
 \usepackage[intoc]{nomencl}
     \makenomenclature
-% To change the name of the Nomenclature section, uncomment the following line
-    %\renewcommand{\nomname}{Symbols}
+    \renewcommand{\nomname}{Symbols}
 
-% \usepackage{imakeidx}
-%     \makeindex[intoc]
-
+\usepackage[xindy]{imakeidx}
+    \makeindex[intoc]
+    
+\usepackage[xindy,nonumberlist,nopostdot,toc,sort=use]{glossaries}
+    \setglossarystyle{long}
+    \renewenvironment{theglossary}%
+    {\begin{longtable}[l]{lp{\glsdescwidth}}}%
+    {\end{longtable}}
+    \setlength{\glsdescwidth}{0.8\linewidth}
+    \renewcommand*{\glsnamefont}[1]{\textbf{#1}}
+    \setacronymstyle{long-short}
+    \makeglossaries
+    % \glsdisablehyper
+    
 % ********************************* Appendix ***********************************
 
 % The default value of both \appendixtocname and \appendixpagename is `Appendices'. These names can all be changed via:
@@ -199,14 +216,15 @@
 % \makeatother
 
 % ********************************* Lipsum ***********************************
-% \usepackage{lipsum}
+\usepackage{lipsum}
+\usepackage{zhlipsum}
 % \usepackage[math]{blindtext}
 
 % *************************** Graphics and figures *****************************
 % Specify one or several paths in which to search for figures.
 % Don't miss the last "/".
 \graphicspath{{Figures/}{Figures/Chapter1/}{Figures/Chapter2/}{Figures/Chapter3/}{Figures/Chapter4/}{Figures/Chapter5/}{Figures/Chapter6/}}
-% \usepackage{pgf,tikz}
+\usepackage{pgf,tikz}
 
 % ******************************************************************************
 % ************************ Thesis Information & Meta-data **********************
@@ -252,6 +270,7 @@
 
 % ******************************** Front Matter ********************************
 \begin{document}
+\VerbatimFootnotes
 
 \frontmatter
 
@@ -274,6 +293,9 @@
 \include{Front/nomenclature}
 \printnomenclature[3cm]
 
+\include{Front/glossary}
+\printglossary[title={Acronyms}]
+
 % ******************************** Main Matter *********************************
 \mainmatter
 \include{Chapters/chapter1}
@@ -291,7 +313,9 @@
 \printbibliography[heading=bibintoc, title={References}]
 \end{spacing}
 
-% \printindex
+\begin{spacing}{0.9}
+\printindex
+\end{spacing}
 % ********************************** Appendices ********************************
 
 \begin{appendices} % Using appendices environment for more functionality

@@ -2,20 +2,20 @@
 
 \section{Introduction}
 \label{ch3:sec:Introduction}
-\cref{ch2:LiteratureReview} reviews the literature on the following subjects ...
+\cref{ch2:LiteratureReview} reviews the literature on the following subjects ...\index{literature}
 
 \begin{figure}[ht]
 \centering
 \begin{minipage}[t]{0.48\linewidth}
   \centering
-  \includegraphics[width=\linewidth]{Figures/Chapter3/ctanlion.pdf}
+  \includegraphics[width=\linewidth]{example-grid-100x100bp}
   \captionof{figure}{caption.}
   \label{fig:fig4}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\linewidth}
   \centering
-  \includegraphics[width=\linewidth]{Figures/Chapter3/ctanlion.pdf}
+  \includegraphics[width=\linewidth]{example-grid-100x100pt}
   \captionof{figure}{caption.}
   \label{fig:fig5}
 \end{minipage}
@@ -23,3 +23,173 @@
 
 \section{Conclusions}
 \label{ch3:sec:Conclusions}
+
+\begin{table}[H]
+\centering\zihao{5}
+\caption{表格}
+\label{tab:my-table}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+a  & b  & c  & d  & e  \\ 
+\midrule
+1  & 2  & 3  & 4  & 5  \\
+6  & 7  & 8  & 9  & 10 \\
+11 & 12 & 13 & 14 & 15 \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering\zihao{5}
+\begin{threeparttable}
+\caption{The Skewing Angles ($\beta$) for $\fam0 Mu(H)+X_2$ and
+   $\fam0 Mu(H)+HX$~\tnote{a}}
+\begin{tabular}{rlcc}
+\toprule
+&   & $\fam0 H(Mu)+F_2$ & $\fam0 H(Mu)+Cl_2$ \\
+\midrule
+&$\beta$(H)  & $80.9^\circ\tnote{b}$ & $83.2^\circ$ \\
+&$\beta$(Mu) & $86.7^\circ$ & $87.7^\circ$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[a] for the abstraction reaction, $\fam0 Mu+HX \rightarrow MuH+X$.
+\item[b] 1 degree${} = \pi/180$ radians.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[H]
+  \centering\zihao{5}
+    \begin{threeparttable}
+        \caption{Alphabet}\label{Alphabet}
+            \begin{tabularx}{\linewidth}{XXX}
+                \toprule
+                \diagbox{A1}{A2}{A3} & B\tnote{1} & C\tnote{2} \\
+                \midrule
+                D & E & F \\
+                G & H & I \\
+                \bottomrule
+            \end{tabularx}
+            \begin{tablenotes}
+                \item[1] B1
+                \item[2] C2
+            \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+
+\begin{ThreePartTable}
+\begin{TableNotes}
+\item[a] \label{tn:a} test test test test test test test test
+\item[b] \label{tn:b} test2
+\source Made up by daleif
+\end{TableNotes}
+\zihao{5}
+\begin{xltabular}{\textwidth}{XXX}
+\caption{一個跨頁的表格} \label{tab:long} \\
+
+\toprule
+\multicolumn{1}{l}{\textbf{First column}} & \multicolumn{1}{l}{\textbf{Second column}} & \multicolumn{1}{l}{\textbf{Third column}} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{c}%
+{\tablename\ \thetable{} -- continued from previous page} \\
+
+\toprule
+\multicolumn{1}{l}{\textbf{First column}} & \multicolumn{1}{l}{\textbf{Second column}} & \multicolumn{1}{l}{\textbf{Third column}} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{3}{r}{{\textit{Continued on next page}}} \\ 
+
+\endfoot
+
+\insertTableNotes\\
+\endlastfoot
+
+One\tnotex{tn:a} & abcdef ghjijklmn & 123.456778 \\
+One\tnotex{tn:b} & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+One & abcdef ghjijklmn & 123.456778 \\
+\bottomrule
+\end{xltabular}
+\end{ThreePartTable}

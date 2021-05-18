@@ -18,7 +18,6 @@
  by Krishna Kumar (v\fileversion)]
 \typeout{https://github.com/kks32/phd-thesis-template/}
 
-
 % ******************************************************************************
 % **************************** Class Definition ********************************
 % ******************************************************************************
@@ -179,16 +178,24 @@ supported!}
 % Process options and load class
 \ProcessOptions\relax%
 \LoadClass{book}%
-\usepackage[french,ngerman,main=english]{babel}
-    \addto\captionsenglish{%
-        \renewcommand{\figurename}{Fig.}%
-        \renewcommand{\contentsname}{Table of Contents}%
-        }
-\usepackage{csquotes}
 
 % ******************************************************************************
 % ******************************** Packages ************************************
 % ******************************************************************************
+
+\RequirePackage{morewrites}
+\RequirePackage[russian,french,ngerman,main=english]{babel}
+    % \babelfont[russian]{rm}{FreeSerif}
+    \addto\captionsenglish{%
+        \renewcommand{\figurename}{Fig.}%
+        \renewcommand{\contentsname}{Table of Contents}%
+        }
+    
+\RequirePackage{amssymb,amsfonts,amsthm,mathtools}
+\newtheorem{theorem}{Theorem}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\RequirePackage{bm,esvect}
+
 % ************************ URL Package and Definition **************************
 \RequirePackage{xurl}
 % ************************** Layout and Formatting *****************************
@@ -198,7 +205,7 @@ supported!}
 
 % ************************* Conditional Statements *****************************
 \RequirePackage{ifthen}   % Conditional statements
-% \RequirePackage{ifpdf}    % Check for pdfLaTeX
+\RequirePackage{ifpdf}    % Check for pdfLaTeX
 \RequirePackage{ifxetex}  % XeLaTeX
 
 % *********************** Table of Contents & Appendices ***********************
@@ -216,7 +223,7 @@ supported!}
 }
 
 % *************************** Graphics and Figures *****************************
-\RequirePackage[usenames, dvipsnames]{color}
+\RequirePackage{xcolor}
 \RequirePackage{graphicx}
 
 % ******************************* Bibliography *********************************
@@ -272,26 +279,20 @@ supported!}
 \fi
 
 % ********************************** Fonts **********************************
-\RequirePackage{amssymb,amsfonts,amsmath,amsthm,mathtools,esvect}
-\newtheorem{theorem}{Theorem}
-\renewcommand{\qedsymbol}{$\blacksquare$}
-\RequirePackage{bm,fontspec}
-% \RequirePackage[]{unicode-math}
 % Chinese support
 \RequirePackage[scheme=plain,fontset=none]{ctex}
-\setCJKmainfont{PMingLiU.ttf} %新細明體
-% \setCJKmainfont{I.MingCP-7.00.ttf} %開源新細明體
-\setmainfont{Times New Roman}
-\newcommand*{\myfont}{\fontfamily{lmr}\selectfont}
+\setCJKmainfont{PMingLiU.ttf} % 新細明體
 
-\RequirePackage{textcomp}
 % Font Selection
 \ifPHD@times
+  \setmainfont{Times New Roman}
+  \RequirePackage{textcomp}
   \setFonttrue
-  \message{PhDThesisPSnPDF: Using Times Roman font}
+  \message{PhDThesisPSnPDF: Using Times New Roman font}
 \else
   \ifPHD@fourier
     \RequirePackage{fourier} % Fourier
+    \RequirePackage{textcomp}
     \setFonttrue
     \message{PhDThesisPSnPDF: Using Fourier font}
   \else
@@ -304,17 +305,6 @@ supported!}
     \fi % custom font
   \fi % Fourier font
 \fi % Times font
-
-% If Font is not set throw a warning.
-\ifsetFont
-\else
-  \ClassWarning{PhDThesisPSnPDF}{Using default font Latin Modern. If you
-    would like to use other pre-defined fonts use `times' (The Cambridge
-    University PhD thesis guidelines recommend using Times font)  or `fourier'
-    or load a custom font in the preamble.tex file by specifying `customfont'
-    in the class options}
-  \RequirePackage{lmodern}
-\fi
 
 % Don't break enumeration (etc.) across pages in an ugly manner
 \clubpenalty=10000
@@ -356,7 +346,7 @@ supported!}
 % ******************************************************************************
 
 % *************************** Setting PDF Meta-Data ****************************
-% \ifpdf
+\ifpdf
 \AtBeginDocument{
   \hypersetup{
     pdftitle = {\@title},
@@ -365,7 +355,7 @@ supported!}
     pdfkeywords={\@keywords}
   }
 }
-% \fi
+\fi
 
 % ******************************** Line Spacing ********************************
 % Set spacing as 1.5 line spacing for the PhD Thesis
@@ -387,7 +377,6 @@ wish to left align your text}
 }
 \fi
 
-
 % ************************** TOC and Hide Sections *****************************
 \newcommand{\nocontentsline}[3]{}
 \newcommand{\tochide}[2]{
@@ -397,10 +386,8 @@ wish to left align your text}
 % Removes pagenumber appearing from TOC
 % \addtocontents{toc}{\protect\thispagestyle{empty}}
 
-
 % ***************************** Header Formatting ******************************
 % Custom Header with Chapter Number, Page Number and Section Numbering
-
 \RequirePackage{fancyhdr} % Define custom header
 
 % Style 1: Sets Page Number at the Top and Chapter/Section Name on LE/RO
@@ -549,7 +536,6 @@ wish to left align your text}
 \newcommand{\submissiontextb}{in Partial Fulfillment of the Requirements\par for the Degree of\space}
 \newcommand{\submissiontextc}{awarded by City University of Hong Kong\par for successful completion of the joint programme with\par\space}
 
-
 % keywords (These keywords will appear in the PDF meta-information
 % called `pdfkeywords`.)
 \newcommand{\@keywords}{}
@@ -583,7 +569,6 @@ wish to left align your text}
 \else
 \fi
 }
-
 
 % ******************************************************************************
 % *************************** Front Matter Layout ******************************
@@ -657,7 +642,6 @@ wish to left align your text}
 \restoregeometry
 }
 
-
 % *********** Information on Qualifying Panel and Examination Panel ************
 \newenvironment{panel}
 {
@@ -665,7 +649,6 @@ wish to left align your text}
 \setsinglecolumn
 % \vspace*{0.2\textheight}
 \thispagestyle{empty}
-
 }
 
 % ********************************* Dedication *********************************
@@ -690,7 +673,6 @@ wish to left align your text}
 \chapter*{\centering \Large \@abstracttitle}
 \pagestyle{plain}
 }
-
 
 % ****************************** Acknowledgements ********************************
 % The acknowledgements environment puts a large, bold, centered
