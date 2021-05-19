@@ -1,1 +1,0 @@
-"C:\Program Files\gs\gs9.53.3\bin\gswin64c.exe" -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -q -o thesis_compressed.pdf thesis.pdf
