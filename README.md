@@ -1,6 +1,6 @@
 # CityU_Thesis
 
-## UPDATE (May 18, 2021)
+## UPDATE (May 19, 2021)
 
 I modified some document settings to make the whole template more suitable for some students of CityU. Users may refer to the [link](https://www.overleaf.com/read/mwpbypjxngvh) for latest updates.
 
